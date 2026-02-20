@@ -4,6 +4,12 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
+//importo i middleware prima di usarli
+
+const errorsHandler = require('./middlewares/errorsHandler')
+
+const notFound = require('./middlewares/notFound')
+
 // attivazione della cartella public per uso file statici
 app.use(express.static('public'));
 
