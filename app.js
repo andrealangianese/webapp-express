@@ -14,7 +14,7 @@ const notFound = require('./middlewares/notFound')
 app.use(express.static('public'));
 
 // creo rotta home APP
-app.get('/', (req, res) => {
+app.get('/api', (req, res) => {
     res.send("<h1>Rotta di home dei movies</h1>")
 })
 
