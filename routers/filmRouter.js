@@ -7,3 +7,17 @@ const router = express.Router();
 // importo relativo controller da usare
 
 const filmController = require('../controllers/filmController')
+
+// definisco le rotte
+
+// rotta di index
+
+router.get('/' , filmController.index)
+
+// rotta di show
+
+router.get('/' , filmController.show)
+
+//esporto le rotte
+
+module.exports = router
