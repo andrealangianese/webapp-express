@@ -11,3 +11,8 @@ app.use(express.static('public'));
 app.get('/', (req, res) => {
     res.send("<h1>Rotta di home dei movies</h1>")
 })
+
+// creo rotta porta 
+app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`)
+})
