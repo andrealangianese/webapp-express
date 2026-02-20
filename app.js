@@ -12,6 +12,14 @@ app.get('/', (req, res) => {
     res.send("<h1>Rotta di home dei movies</h1>")
 })
 
+//registro middleware per rotta inesistente
+
+app.use(notFound)
+
+//registro middleware dopo le rotte l'errore 500
+
+app.use(errorsHandler)
+
 // creo rotta porta 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
