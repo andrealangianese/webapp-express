@@ -16,7 +16,7 @@ router.get('/' , filmController.index)
 
 // rotta di show
 
-router.get('/' , filmController.show)
+router.get('/:id', filmController.show)
 
 //esporto le rotte
 
