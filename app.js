@@ -4,6 +4,10 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
+// importo le rotte dei film
+
+const filmRouter = require('./routers/filmRouter')
+
 //importo i middleware prima di usarli
 
 const errorsHandler = require('./middlewares/errorsHandler')
@@ -17,6 +21,10 @@ app.use(express.static('public'));
 app.get('/api', (req, res) => {
     res.send("<h1>Rotta di home dei movies</h1>")
 })
+
+// uso rotte di filmRouter
+
+app.use('/api/movies', filmRouter)
 
 //registro middleware per rotta inesistente
 
