@@ -12,10 +12,20 @@ function index(req, res) {
     connection.query(sql, (err, results) => {
         if (err) {
             console.error('Error executing query:', err);
-            res.status(500).json({ error: 'Server Error' });
-            return;
-        }
-        res.json(results);
+            return res.status(500).json({ error: 'Server Error' });
+        }    
+            // creo una copia dei risultati con modifica path imgs
+            
+            const movies = results.map(movie => {
+                return {
+                    ...movie,
+                    image: req.imagePath + movie.image
+                }
+            })
+
+            // res.json(movies);
+        
+        res.json(movies);
     })
 }
 
@@ -48,7 +58,7 @@ function show(req, res) {
             movie.reviews = reviewResults
             res.json(movie)
 
-            console.log(reviewResults);
+
 
         })
 
