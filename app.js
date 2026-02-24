@@ -23,6 +23,14 @@ const errorsHandler = require('./middlewares/errorsHandler')
 
 const notFound = require('./middlewares/notFound')
 
+// importo middleware per gestione di path img dinamica
+
+const imagePathMiddleware = require('./middlewares/handlePathImage')
+
+// utilizzo il middleware qua sopra appena creato
+
+app.use(imagePathMiddleware)
+
 // attivazione della cartella public per uso file statici
 app.use(express.static('public'));
 
