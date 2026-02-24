@@ -45,7 +45,7 @@ function show(req, res) {
             if (err) { return res.status(500).json({ error: 'Server Error' }) }
 
             // aggiungo le review al film
-            movie.reviews = revieResults
+            movie.reviews = reviewResults
             res.json(movie)
 
             console.log(reviewResults);

@@ -4,6 +4,15 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
+// importiamo middleware cors
+const cors = require("cors");
+
+
+// middleware per il CORS
+app.use(cors({
+    origin: 'http://localhost:5173'
+}));
+
 // importo le rotte dei film
 
 const filmRouter = require('./routers/filmRouter')
