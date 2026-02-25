@@ -81,7 +81,20 @@ function storeReview(req, res) {
     
     const sql = 'INSERT INTO reviews (movie_id, name, vote, text) VALUES (?, ?, ?, ?)'
 
-    
+    // eseguo la query di insert
+
+    connection.query(sql, [id, name, vote, text], (err, results) => {
+        if (err) { return res.status(500).json({ error: 'Server Error' }) }
+
+        // setto lo status a 201 per indicare che è stato creato un nuovo elemento
+        res.status(201)
+
+        // se tutto va bene restituisco un messaggio di successo
+        res.json({ message: 'Review added successfully' })
+    })
+
+
+
 }
 
 module.exports = { index, show, storeReview }
