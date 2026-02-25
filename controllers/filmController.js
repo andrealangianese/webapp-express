@@ -76,6 +76,12 @@ function storeReview(req, res) {
 
     // recupero dati dal body della richiesta
     const { name, vote , text} = req.body
+
+    // setto una var per fare la query di insert
+    
+    const sql = 'INSERT INTO reviews (movie_id, name, vote, text) VALUES (?, ?, ?, ?)'
+
+    
 }
 
 module.exports = { index, show, storeReview }
