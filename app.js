@@ -34,6 +34,9 @@ app.use(imagePathMiddleware)
 // attivazione della cartella public per uso file statici
 app.use(express.static('public'));
 
+// attivazione de body parser per json, serve per leggere il body della richiesta e trasformarlo in un oggetto js
+app.use(express.json())
+
 // creo rotta home APP
 app.get('/api', (req, res) => {
     res.send("<h1>Rotta di home dei movies</h1>")

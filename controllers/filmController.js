@@ -13,18 +13,18 @@ function index(req, res) {
         if (err) {
             console.error('Error executing query:', err);
             return res.status(500).json({ error: 'Server Error' });
-        }    
-            // creo una copia dei risultati con modifica path imgs
-            
-            const movies = results.map(movie => {
-                return {
-                    ...movie,
-                    image: req.imagePath + movie.image
-                }
-            })
+        }
+        // creo una copia dei risultati con modifica path imgs
 
-            // res.json(movies);
-        
+        const movies = results.map(movie => {
+            return {
+                ...movie,
+                image: req.imagePath + movie.image
+            }
+        })
+
+        // res.json(movies);
+
         res.json(movies);
     })
 }
@@ -49,6 +49,7 @@ function show(req, res) {
 
         const movie = results[0]
 
+        
         //eseguo query che restituisce anche review
 
         connection.query(reviewSql, [id], (err, reviewResults) => {
