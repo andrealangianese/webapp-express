@@ -66,4 +66,16 @@ function show(req, res) {
     })
 }
 
-module.exports = { index, show }
+// creo funzione per aggungere nuove review al film
+
+function storeReview(req, res) {
+
+    // recupero id dinamicamente
+
+    const { id } = req.params
+
+    // recupero dati dal body della richiesta
+    const { name, vote , text} = req.body
+}
+
+module.exports = { index, show, storeReview }
